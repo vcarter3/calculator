@@ -11,7 +11,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if(b == 0){
+    if (b == 0) {
         return "zeroDiv"
     }
     return a / b;
@@ -40,79 +40,86 @@ const displayValue = document.querySelector(".display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
-
+var operatorHistory = "";
 var store = "0";
 var solution = "";
 
-numbers.forEach(number => number.addEventListener("click", function () {
-    // number pressed is stored into var store
-    
+function updateDisplay(char) {
     if (displayValue.textContent == "0") {
         // start
-        displayValue.textContent = number.id;
-        store = number.id;
+        displayValue.textContent = char;
+        store = char;
 
     } else {
-        displayValue.textContent = displayValue.textContent + number.id.toString();
-        store = concat(store, number.id)
+        displayValue.textContent = displayValue.textContent + char.toString();
+        store = concat(store, char)
     }
 
+}
+
+function clearDisplay() {
+    store = "0";
+    solution = "";
+    displayValue.textContent = "0";
+}
+
+
+numbers.forEach(number => number.addEventListener("click", function () {
+    // number pressed is stored into var store
+    updateDisplay(number.id);
 }));
 
-operators.forEach(operator => operator.addEventListener("click", function () {
+window.addEventListener('keydown', function (e) {
+    if (e.key in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+        updateDisplay(e.key);
+    }
+}, false);
 
+
+operators.forEach(operator => operator.addEventListener("click", function () {
     if (operator.id == ".") {
-        if (displayValue.textContent==0){
-            displayValue.textContent="0."
+        if (displayValue.textContent == 0) {
+            displayValue.textContent = "0."
             store = "0."
-        }else{
-        displayValue.textContent += operator.textContent;
-        store += ".";
+        } else {
+            displayValue.textContent += operator.textContent;
+            store += ".";
         }
         return
     }
-    
+
     if (operator.id == "C") {
         // clear operation
-        store = "0";
-        solution = "";
-        displayValue.textContent = "0";
-        return
+        return clearDisplay();
     }
 
     displayValue.textContent += operator.textContent;
-    console.log("sol", solution, "store", store)
-
 
     if (solution == "") {
         // start 
         solution = store;
-        op = operator.id;
+        operatorHistory = operator.id;
         store = "";
 
     } else {
-        solution = operate(op, parseFloat(solution), parseFloat(store));
-        if(solution == "zeroDiv"){
+        solution = operate(operatorHistory, parseFloat(solution), parseFloat(store));
+        if (solution == "zeroDiv") {
             store = "";
             solution = "";
-            displayValue.textContent = "Error: You tried division by zero!";
-            return 
-        }else{
-            solution = Number(solution.toFixed(2));
+            displayValue.textContent = "Division by zero!";
+            return
+        } else {
+            solution = solution.toFixed(3);
         }
         store = "";
 
         if (operator.id == "=") {
             // save current to store and display then reset
-
-            console.log("sol", solution, "store", store)
-
             displayValue.textContent = solution;
             store = solution;
             solution = "";
-
         } else {
-            op = operator.id;
+            operatorHistory = operator.id;
         }
 
     }
