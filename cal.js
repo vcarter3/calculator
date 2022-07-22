@@ -83,6 +83,10 @@ operators.forEach(operator => operator.addEventListener("click", function () {
             displayValue.textContent = "0."
             store = "0."
         } else {
+            if(store.toString().split("").includes(".")){
+                //current number contains decimal already
+                return
+            }
             displayValue.textContent += operator.textContent;
             store += ".";
         }
