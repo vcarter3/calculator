@@ -95,7 +95,7 @@ operators.forEach(operator => operator.addEventListener("click", function () {
     }
 
     if (store == "" && solution != ""){
-        // when midway through pair cal, cannot add more operands
+        // when midway through pair cal, cannot add more operators
         return
     }
 
