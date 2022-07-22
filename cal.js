@@ -77,6 +77,7 @@ window.addEventListener('keydown', function (e) {
 
 
 operators.forEach(operator => operator.addEventListener("click", function () {
+
     if (operator.id == ".") {
         if (displayValue.textContent == 0) {
             displayValue.textContent = "0."
@@ -91,6 +92,11 @@ operators.forEach(operator => operator.addEventListener("click", function () {
     if (operator.id == "C") {
         // clear operation
         return clearDisplay();
+    }
+
+    if (store == "" && solution != ""){
+        // when midway through pair cal, cannot add more operands
+        return
     }
 
     displayValue.textContent += operator.textContent;
@@ -109,7 +115,7 @@ operators.forEach(operator => operator.addEventListener("click", function () {
             displayValue.textContent = "Division by zero!";
             return
         } else {
-            solution = solution.toFixed(3);
+            solution = Number(solution.toFixed(3));
         }
         store = "";
 
@@ -121,6 +127,8 @@ operators.forEach(operator => operator.addEventListener("click", function () {
         } else {
             operatorHistory = operator.id;
         }
+
+        console.log(operatorHistory);
 
     }
 }));
