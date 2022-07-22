@@ -1,12 +1,16 @@
+
 .calculator {
     width: 145px;
     display: block; 
     margin: auto;
+    caret-color: transparent;
 }
 
 .display{
+    color: rgb(44, 90, 121);
     background-color: rgb(244, 244, 244);
     font-size: medium;
+    font-weight: bold;
     font-family:sans-serif;
     height: 30px;
     border-radius: 5px;
@@ -34,6 +38,7 @@
 }
 
 button {
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     margin: 3px;
