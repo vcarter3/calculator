@@ -1,17 +1,30 @@
+html {
+background: #212121;
+}
 
+.rounds{
+    font-size: xx-small;
+    font-family: monospace;
+    font-weight: bold;
+    color: rgb(108, 108, 109);
+}
 .calculator {
+    background: #d2d6e7;
+    padding: 10px;
+    border-radius: 4px;
+    border:rgb(44, 90, 121);
     width: 145px;
-    display: block; 
+    display: block;
     margin: auto;
     caret-color: transparent;
 }
 
-.display{
+.display {
     color: rgb(44, 90, 121);
     background-color: rgb(244, 244, 244);
     font-size: medium;
     font-weight: bold;
-    font-family:sans-serif;
+    font-family: sans-serif;
     height: 30px;
     border-radius: 5px;
     text-align: right;
@@ -23,18 +36,20 @@
 /* Hide scrollbar for Chrome, Safari and Opera */
 .display::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .display {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.display {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    
+
 }
 
 button {
@@ -45,33 +60,33 @@ button {
     height: 30px;
     font-size: medium;
     color: rgb(44, 90, 121);
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
 button:hover {
     opacity: 0.8;
-    font-family:sans-serif;
+    font-family: sans-serif;
     cursor: pointer;
 }
 
-.operator{
-    background-color:rgb(11, 164, 116);
+.operator {
+    background-color: rgb(11, 164, 116);
     color: rgb(255, 255, 255);
     border-radius: 10px;
     aspect-ratio: 1;
 }
 
-[id = "="]{
+[id="="] {
     width: 390%;
-    background-color:rgb(244, 232, 6);
-    color: rgb(255, 255, 255);
-}
-[id = "C"]{
-    background-color:rgb(244, 6, 6);
+    background-color: rgb(244, 232, 6);
     color: rgb(255, 255, 255);
 }
 
-[id = "."]{
-    background-color:revert;
-    color: revert;
+[id="C"] {
+    background-color: rgb(244, 6, 6);
+    color: rgb(255, 255, 255);
+}
+
+[id="."] {
+    background-color: rgb(55, 137, 191);
 }
