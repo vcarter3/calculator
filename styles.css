@@ -1,15 +1,72 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 20%;
-}
-.numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.calculator {
+    width: 145px;
+    display: block; 
+    margin: auto;
 }
 
-.operators {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.display{
+    background-color: rgb(244, 244, 244);
+    font-size: medium;
+    font-family:sans-serif;
+    height: 30px;
+    border-radius: 5px;
+    text-align: right;
+    padding: 0 3px;
+    margin: 3px;
+    overflow: auto;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.display::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .display {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    margin: 3px;
+    height: 30px;
+    font-size: medium;
+    color: rgb(44, 90, 121);
+    font-family:sans-serif;
+}
+
+button:hover {
+    opacity: 0.8;
+    font-family:sans-serif;
+    cursor: pointer;
+}
+
+.operator{
+    background-color:rgb(11, 164, 116);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    aspect-ratio: 1;
+}
+
+[id = "="]{
+    width: 390%;
+    background-color:rgb(244, 232, 6);
+    color: rgb(255, 255, 255);
+}
+[id = "C"]{
+    background-color:rgb(244, 6, 6);
+    color: rgb(255, 255, 255);
+}
+
+[id = "."]{
+    background-color:revert;
+    color: revert;
+}
